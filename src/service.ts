@@ -77,6 +77,7 @@ export class Service {
     const soapBody = queryTranslator.createSoapRequest(this._requestBuilder, defaultParameters);
 
     const currentToken = await this.obtainCurrentToken();
+    console.log({soapBody,currentToken,endpoint:this._endpoints.getQuery()})
     const responseBody = await this.consume(
       'http://DescargaMasivaTerceros.sat.gob.mx/ISolicitaDescargaService/SolicitaDescarga',
       this._endpoints.getQuery(),
