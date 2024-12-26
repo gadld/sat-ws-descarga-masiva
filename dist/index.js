@@ -1087,8 +1087,10 @@ var FielRequestBuilder = class _FielRequestBuilder {
     if (queryByUuid) {
       solicitudAttributes.set("Folio", queryParameters.getUuid().getValue());
     } else {
+      console.log({ queryParameters, start: queryParameters.getPeriod().getStart(), end: queryParameters.getPeriod().getEnd() });
       const start = queryParameters.getPeriod().getStart().format("yyyy-MM-dd'T'HH:mm:ss");
       const end = queryParameters.getPeriod().getEnd().format("yyyy-MM-dd'T'HH:mm:ss");
+      console.log({ start, end });
       let rfcIssuer;
       let rfcReceivers;
       if (queryParameters.getDownloadType().isTypeOf("issued")) {
